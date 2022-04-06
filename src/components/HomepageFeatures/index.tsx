@@ -24,7 +24,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Photo Digitization Project',
     imagePath: PhotoGalleryImage,
-    link: (children) => <Link to="photos">{children}</Link>,
+    link: (children) => <Link to="photo-archive">{children}</Link>,
     description: (
       <>
         Help tag old photos with names, places, and occasions so they become
