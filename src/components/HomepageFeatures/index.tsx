@@ -1,52 +1,58 @@
-import React from 'react';
+import Link from '@docusaurus/Link';
+import PhotoGalleryImage from '@site/static/img/photo-gallery.png';
+import PlateForkSpoonImage from '@site/static/img/plate-fork-spoon.png';
+import SlackLogoImage from '@site/static/img/slack-logo.png';
 import clsx from 'clsx';
+import React from 'react';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  Svg?: React.ComponentType<React.ComponentProps<'svg'>>;
+  imagePath?: string;
   description: JSX.Element;
+  link?: (children: React.ReactChild) => JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Meals',
+    imagePath: PlateForkSpoonImage,
+    description: <>What is there to eat around here... and who's making it?</>,
+    link: (children) => <Link to="meals">{children}</Link>,
+  },
+  {
+    title: 'Photo Digitization Project',
+    imagePath: PhotoGalleryImage,
+    link: (children) => <Link to="photos">{children}</Link>,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Help tag old photos with names, places, and occasions so they become
+        searchable.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
+    title: 'Chat with the Fam',
+    imagePath: SlackLogoImage,
+    link: (children) => (
+      <Link href="https://hsufamilyworldwide.slack.com">{children}</Link>
     ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    description: <>Our family Slack group</>,
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, imagePath, link, description }: FeatureItem) {
+  const image = (
+    <div className="text--center">
+      {Svg && <Svg className={styles.featureSvg} role="img" />}
+      {imagePath && <img src={imagePath} className={styles.featureImage} />}
+    </div>
+  );
+
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
+      {link ? link(image) : image}
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
