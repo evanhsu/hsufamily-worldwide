@@ -2,9 +2,13 @@
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
+It's a public repository, so go ahead and open a **Pull Request** for any changes you'd like to make!
+
 ### Installation
 
 ```
+$ git clone git@github.com:evanhsu/hsufamily-worldwide.git
+$ cd hsufamily-worldwide
 $ yarn
 ```
 
@@ -22,8 +26,8 @@ This command starts a local development server and opens up a browser window. Mo
 $ yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This command is used to produce a production build. It generates static content into the `build` directory and can be served using any static contents hosting service.
 
 ### Deployment
 
-This is set up to deploy to Github Pages on merge.
+This is set up to deploy to Github Pages whenever new commits land on `main`.
