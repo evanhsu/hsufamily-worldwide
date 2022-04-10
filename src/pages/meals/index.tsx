@@ -176,23 +176,29 @@ export const MealsPage = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(menuByMeal).map(([mealName, mealsByDate]) => (
-                  <tr>
-                    <td className={styles.mealName}>{mealName}</td>
-                    {Object.values(mealsByDate).map((meal) => (
-                      <td>
-                        <div className={styles.mealCredits}>{meal.credits}</div>
-                        <div>
-                          <ul className={styles.courseList}>
-                            {meal.courses.map((course) => (
-                              <li className={styles.course}>{course}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </td>
-                    ))}
-                  </tr>
-                ))}
+                {Object.entries(menuByMeal).map(
+                  ([mealName, mealsByDate], idx) => (
+                    <tr key={idx}>
+                      <td className={styles.mealName}>{mealName}</td>
+                      {Object.values(mealsByDate).map((meal, idx) => (
+                        <td key={idx}>
+                          <div className={styles.mealCredits}>
+                            {meal.credits}
+                          </div>
+                          <div>
+                            <ul className={styles.courseList}>
+                              {meal.courses.map((course, idx) => (
+                                <li key={idx} className={styles.course}>
+                                  {course}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </td>
+                      ))}
+                    </tr>
+                  )
+                )}
               </tbody>
             </table>
           </div>
