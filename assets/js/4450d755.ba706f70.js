@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkhsuworldwide=self.webpackChunkhsuworldwide||[]).push([[988],{2179:function(e,t,n){n.r(t);var l=n(3570),u=n(7294);t.default=function(e){return u.createElement(l.Z,{title:"Photos",description:"Reunion Home Base"},u.createElement("main",null,u.createElement("section",null,"Photo Archive Page")))}}}]);
