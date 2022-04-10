@@ -1,3 +1,4 @@
+import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import React from 'react';
@@ -159,6 +160,27 @@ export const MealsPage = (props) => {
   return (
     <Layout title="Meals" description="Reunion Home Base">
       <main>
+        <section>
+          <div className={clsx('container', styles.calloutBox)}>
+            <div className={clsx('container', styles.shoppingListLink)}>
+              <h2>We have a shared shopping list!</h2>
+              <ol>
+                <li>
+                  1){' '}
+                  <Link href="https://www.getbring.com/en/home">
+                    Download the app
+                  </Link>
+                </li>
+                <li>
+                  2){' '}
+                  <Link href="https://go.getbring.com/jx5QpgeTiqedPQh37">
+                    ...then use this link to add to the shared list
+                  </Link>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
         <section>
           <div className={clsx('container', styles.mealPlan)}>
             <table>
